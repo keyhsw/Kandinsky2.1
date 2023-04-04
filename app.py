@@ -154,6 +154,8 @@ with block as demo:
 
 [![Framework: PyTorch](https://img.shields.io/badge/Framework-PyTorch-orange.svg)](https://pytorch.org/) [![Huggingface space](https://img.shields.io/badge/🤗-Huggingface-yello.svg)](https://huggingface.co/sberbank-ai/Kandinsky_2.0)
 [Offical BlogPost](https://habr.com/ru/company/sberbank/blog/725282/)
+[Offical Telegram Bot](https://t.me/kandinsky21_bot)
+[Offical site](https://fusionbrain.ai/diffusion)
 
 ## Model architecture:
 Kandinsky 2.1 inherits best practicies from Dall-E 2 and Latent diffucion, while introducing some new ideas.
