@@ -218,4 +218,4 @@ gr.Markdown("""
     """
     )
     
-demo.queue(max_size=2).launch()
+demo.queue(max_size=15).launch()
