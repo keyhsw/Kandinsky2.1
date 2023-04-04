@@ -1,3 +1,4 @@
+import os
 
 import gradio as gr
 import torch
@@ -141,18 +142,23 @@ css = """
 block = gr.Blocks(css=css)
 
 examples = [
-   
+
     [
         'Thinking man in anime style'
     ],
-   
+
 ]
 
+SPACE_ID = os.getenv('SPACE_ID')
+
 with block as demo:
-    gr.Markdown("""
-       
+    gr.Markdown(f"""
+
 
 [![Framework: PyTorch](https://img.shields.io/badge/Framework-PyTorch-orange.svg)](https://pytorch.org/) [![Huggingface space](https://img.shields.io/badge/🤗-Huggingface-yello.svg)](https://huggingface.co/sberbank-ai/Kandinsky_2.0)
+
+<p>For faster inference without waiting in queue, you may duplicate the space and upgrade to GPU in settings. <a href="https://huggingface.co/spaces/{SPACE_ID}?duplicate=true"><img style="display: inline; margin-top: 0em; margin-bottom: 0em" src="https://bit.ly/3gLdBN6" alt="Duplicate Space" /></a></p>
+
 [Offical BlogPost](https://habr.com/ru/company/sberbank/blog/725282/)
 [Offical Telegram Bot](https://t.me/kandinsky21_bot)
 [Offical site](https://fusionbrain.ai/diffusion)
@@ -176,7 +182,7 @@ Kandinsky 2.1 was trained on a large-scale image-text dataset LAION HighRes and 
 
 **Kandinsky 2.1** architecture overview:
 ![](kandi2.png)
-             
+
         """
     )
     with gr.Group():
@@ -194,19 +200,19 @@ Kandinsky 2.1 was trained on a large-scale image-text dataset LAION HighRes and 
                     margin=False,
                     rounded=(False, True, True, False),
                 )
-               
+
         gallery = gr.Gallery(label="Generated images", show_label=False, elem_id="generated_id").style(
             grid=[2], height="auto"
         )
-        
+
         ex = gr.Examples(examples=examples, fn=infer, inputs=[text], outputs=gallery, cache_examples=True)
         ex.dataset.headers = [""]
-        
+
         text.submit(infer, inputs=[text], outputs=gallery)
         btn.click(infer, inputs=[text], outputs=gallery)
 gr.Markdown("""
-    
-    
+
+
 # Authors
 
 + Arseniy Shakhmatov: [Github](https://github.com/cene555), [Blog](https://t.me/gradientdip)
@@ -219,5 +225,5 @@ gr.Markdown("""
 
     """
     )
-    
+
 demo.queue(max_size=15).launch()
