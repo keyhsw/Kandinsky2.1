@@ -21,7 +21,7 @@ num_steps=50,
     prior_cf_scale=1,
     prior_steps='25',
 """
-def infer(prompt, negative):
+def infer(prompt, negative='low quality, bad quality'):
     images = model.generate_text2img(prompt, 
                            negative_prior_prompt=negative,
                            negative_decoder_prompt=negative, 
