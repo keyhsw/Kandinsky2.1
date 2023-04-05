@@ -227,7 +227,7 @@ Kandinsky 2.1 was trained on a large-scale image-text dataset LAION HighRes and 
             grid=[2], height="auto"
         )
 
-        ex = gr.Examples(examples=examples, fn=infer, inputs=[text], outputs=gallery, cache_examples=True)
+        ex = gr.Examples(examples=examples, fn=infer, inputs=[text, negative], outputs=gallery, cache_examples=True)
         ex.dataset.headers = [""]
 
         text.submit(infer, inputs=[text, negative], outputs=gallery)
