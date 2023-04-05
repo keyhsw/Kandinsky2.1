@@ -196,7 +196,8 @@ Kandinsky 2.1 was trained on a large-scale image-text dataset LAION HighRes and 
 
 **Kandinsky 2.1** architecture overview:
 
-![kandi2.png]()
+![](https://raw.githubusercontent.com/ai-forever/Kandinsky-2/main/content/einstein.png)
+
 
         """
     )
@@ -205,14 +206,14 @@ Kandinsky 2.1 was trained on a large-scale image-text dataset LAION HighRes and 
             with gr.Row().style(mobile_collapse=False, equal_height=True):
 
                 text = gr.Textbox(
-                    label="Enter your prompt", show_label=False, max_lines=1
+                    label="Enter your prompt", show_label=True, max_lines=2
                 ).style(
                     border=(True, False, True, True),
                     rounded=(True, False, False, True),
                     container=False,
                 )
                 negative = gr.Textbox(
-                    label="Enter your negative prompt", show_label=False, max_lines=1
+                    label="Enter your negative prompt", show_label=True, max_lines=2
                 ).style(
                     border=(True, False, True, True),
                     rounded=(True, False, False, True),
