@@ -12,8 +12,8 @@ model = get_kandinsky2('cuda', task_type='text2img', model_version='2.1', use_fl
 
 
 
-def infer(prompt):
-    images = model.generate_text2img(prompt, num_steps=100,
+def infer(prompt, negative):
+    images = model.generate_text2img(prompt, negative_prior_prompt=negative,negative_decoder_prompt=negative, num_steps=100,
                           batch_size=1, guidance_scale=4,
                            h=768, w=768,
                            sampler='p_sampler', prior_cf_scale=4,
@@ -192,6 +192,13 @@ Kandinsky 2.1 was trained on a large-scale image-text dataset LAION HighRes and 
 
                 text = gr.Textbox(
                     label="Enter your prompt", show_label=False, max_lines=1
+                ).style(
+                    border=(True, False, True, True),
+                    rounded=(True, False, False, True),
+                    container=False,
+                )
+                negative = gr.Textbox(
+                    label="Enter your negative prompt", show_label=False, max_lines=1
                 ).style(
                     border=(True, False, True, True),
                     rounded=(True, False, False, True),
