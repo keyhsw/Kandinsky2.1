@@ -11,13 +11,27 @@ from kandinsky2 import get_kandinsky2
 model = get_kandinsky2('cuda', task_type='text2img', model_version='2.1', use_flash_attention=False)
 
 
-
+"""
+num_steps=50, 
+    batch_size=4, 
+    guidance_scale=7,
+    h=768, 
+    w=768,
+    sampler='ddim_sampler', 
+    prior_cf_scale=1,
+    prior_steps='25',
+"""
 def infer(prompt, negative):
-    images = model.generate_text2img(prompt, negative_prior_prompt=negative,negative_decoder_prompt=negative, num_steps=100,
-                          batch_size=1, guidance_scale=4,
+    images = model.generate_text2img(prompt, 
+                           negative_prior_prompt=negative,
+                           negative_decoder_prompt=negative, 
+                           num_steps=50,
+                           batch_size=1,
+                           guidance_scale=4,
                            h=768, w=768,
-                           sampler='p_sampler', prior_cf_scale=4,
-                           prior_steps="5",)
+                           sampler='ddim_sampler',
+                           prior_cf_scale=1,
+                           prior_steps="25",)
     return images
 
 css = """
