@@ -181,7 +181,7 @@ Other architecture parts:
 Kandinsky 2.1 was trained on a large-scale image-text dataset LAION HighRes and fine-tuned on our internal datasets.
 
 **Kandinsky 2.1** architecture overview:
-![](kandi2.png)
+![](./kandi2.png)
 
         """
     )
